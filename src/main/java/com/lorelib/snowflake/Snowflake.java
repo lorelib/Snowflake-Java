@@ -1,5 +1,7 @@
+package com.lorelib.snowflake;
+
 /**
- * ID生成器
+ * twitter snowflake算法JAVA版
  * Created by listening on 2017/3/24.
  */
 public class Snowflake {
@@ -18,7 +20,7 @@ public class Snowflake {
     private long timestampLeftShift = sequenceBits + workerIdBits + dataCenterIdBits;
     private long sequenceMask = -1L ^ (-1L << sequenceBits);
 
-    private long lastTimestamp = -1L;
+    private static long lastTimestamp = -1L;
     private long twepoch = 1288834974657L;
 
     protected Snowflake() {
@@ -40,7 +42,7 @@ public class Snowflake {
         } else {
             sequence = 0;
         }
-
+        //System.out.println("timestamp: " + timestamp + ", lastTimestamp: " + lastTimestamp + ", workerId: " + workerId + ", sequence: " + sequence);
         lastTimestamp = timestamp;
         return ((timestamp - twepoch) << timestampLeftShift) |
                 (dataCenterId << dataCenterIdShift) |
@@ -71,7 +73,7 @@ public class Snowflake {
      * @param args
      */
     public static void main(String[] args) {
-        Snowflake snowflake = new Snowflake(12, 1, 1);
+        Snowflake snowflake = new Snowflake(1200000, 1, 1);
         long start = System.currentTimeMillis();
         long num = 10000L;
         for (long i = 0; i < num; i++) {
