@@ -11,7 +11,7 @@
 
     <properties>
         <project.encoding>UTF-8</project.encoding>
-        <project.jdk.version>1.7</project.jdk.version>
+        <project.jdk.version>1.8</project.jdk.version>
         <commons-lang3.version>3.5</commons-lang3.version>
     </properties>
 
