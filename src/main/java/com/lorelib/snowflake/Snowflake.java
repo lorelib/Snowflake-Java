@@ -61,26 +61,4 @@ public class Snowflake {
     protected long timeGen() {
         return System.currentTimeMillis();
     }
-
-    /**
-     * 环境：
-     *  jdk1.8.0_101
-     *  Intel Core i3-4170  3.7GHz  8GB RAM  64位
-     * 测试数据：
-     * 生成1000000000个ID耗用时间: 245007毫秒       10亿
-     * 生成1000000个ID耗用时间: 264毫秒             100万
-     * 生成10000个ID耗用时间: 4毫秒                 1万
-     * @param args
-     */
-    public static void main(String[] args) {
-        Snowflake snowflake = new Snowflake(1200000, 1, 1);
-        long start = System.currentTimeMillis();
-        long num = 10000L;
-        for (long i = 0; i < num; i++) {
-            long id = snowflake.nextId();
-            System.out.println("id: " + id + ", len: " + (id + "").length());
-        }
-        long end = System.currentTimeMillis();
-        System.out.println("生成" + num + "个ID耗用时间: " + (end - start) + "毫秒");
-    }
 }
