@@ -31,7 +31,7 @@ public class IdGeneratorTest {
         long num = 10000L;
         for (long i = 0; i < num; i++) {
             long id = IdGenerator.nextId();
-            System.out.println("id: " + id + ", len: " + (id + "").length());
+            System.out.println("id: " + id + ", len: " + Long.toString(id).length());
         }
         long end = System.currentTimeMillis();
         System.out.println("生成" + num + "个ID耗用时间: " + (end - start) + "毫秒");
